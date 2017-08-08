@@ -1,0 +1,20 @@
+<%- include partials/header %>
+
+<!-- Main -->
+<div id="mainUsers" class="main">
+
+    <div class="containerUsers">
+        <% users.forEach(function(user){ %>
+        <a href="/user/<%=user.id%>">
+            <div class="user">
+                <div class="img" style="background-image: url('<%=user.profilPic%>')"></div>
+            </div>
+            <p><%=user.username%></p>
+        </a>
+        <% }) %>
+    </div>
+
+
+</div>
+
+<%- include partials/footer %>

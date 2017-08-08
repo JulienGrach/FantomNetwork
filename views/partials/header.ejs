@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <title>Fantom Network</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/assets/css/main.css"/>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+    <!-- Logo -->
+    <div id="headerContentFirst" class="component">
+        <a href="/" class="logoHeader">
+            <div id="logo" class="img"></div>
+        </a>
+    </div>
+
+    <%if(client){%>
+    <!-- Nav -->
+    <div id="headerContentSecond" class="component">
+        <nav class="menu">
+            <ul class="menuFlex">
+                <li>
+                    <a href="/articles">
+                        News
+                    </a>
+                </li>
+                <li>
+                    <a href="/create">
+                        Add Post
+                    </a>
+                </li>
+                <li>
+                    <a href="/articles">
+                        My Informations
+                    </a>
+                </li>
+                <li>
+                    <a href="/articles">
+                        Cloud
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Filter -->
+    <div id="headerContentThird" class="component">
+        <form class="formSearchUser">
+            <label for="searchUser"><div id="iconSearchUser" class="img"></div></label>
+            <input id="searchUser" type="text" placeholder="search">
+        </form>
+    </div>
+
+
+    <!--Profil-->
+    <div id="headerContentFourth" class="component">
+        <a href="/user/<%=client.id%>">
+            <div class="clientAuthor">
+                <div class="clientAuthorPic">
+                    <div class="img" style="background-image: url('<%=client.profilPic%>')"></div>
+                </div>
+                <span class="articleAuthorName"><%=client.username%></span>
+            </div>
+        </a>
+    </div>
+    <%}%>
+
+
+</header>
+
+

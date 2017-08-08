@@ -1,0 +1,69 @@
+.article{
+  width: 60%;
+  margin: 30px auto 30px auto;
+  border-radius: 10px 10px 0 0;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+}
+
+//HEAD
+.articleHead{
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  font-size: 0.8em;
+  background-color: gainsboro;
+}
+
+.articleAuthorPic{
+  height: 100px;
+  width: 80px;
+}
+
+.articleAuthorPic .img{
+  border-radius: 10px 0 0 0;
+}
+
+.articleHead h3{
+  font-size: 2em;
+}
+
+//CONTENT
+.articleContainer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.articleContent{
+  width: 80%;
+  max-height: 30vh;
+  overflow: hidden;
+  margin: auto;
+}
+
+//FOOT
+
+.articleFoot{
+  text-align: center;
+}
+
+.articleComments{
+  display: none;
+}
+
+.articleNext{
+  display: none;
+}
+
+.articleButton{
+  margin: 20px auto 0 auto;
+  height: 50px;
+  width: 50px;
+  background-color: palegreen;
+  border-radius: 10px;
+}
+

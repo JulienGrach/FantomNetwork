@@ -1,0 +1,43 @@
+
+//HEAD
+.userPageHead{
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  margin: 50px;
+  width: 25%;
+  height: 80%;
+}
+
+.introduceTitles{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+}
+
+.introduce{
+  overflow: auto;
+  max-height : 70%;
+  font-size: 0.8em;
+  border: 1px solid black;
+}
+
+.introduce p{
+  padding: 20px;
+}
+
+.backgroundWrapper{
+  height: 30%;
+  width: 100%;
+}
+
+//CONTENT
+.userArticle{
+  width: 60%;
+  margin-left: 35%;
+}
+
+#mainUser .article{
+  width: 100%;
+}

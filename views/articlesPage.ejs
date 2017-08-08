@@ -1,0 +1,13 @@
+<% include partials/header %>
+
+<div id="mainArticles" class="main">
+
+    <%articles.forEach(function(article){%>
+        <% include partials/article %>
+    <%})%>
+
+</div>
+
+<script type="text/javascript" src="/assets/js/articles/articlesCountHeight.js"></script>
+
+<% include partials/footer %>

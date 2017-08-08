@@ -1,0 +1,20 @@
+<div class="comment">
+    <div class="commentHead">
+        <a href="/user/<%=comment.userId%>">
+            <div class="commentAuthor">
+                <div class="commentAuthorPic">
+                    <div class="img" style="background-image: url('<%=comment.profilPic%>')"></div>
+                </div>
+                <span class="commentAuthorName"><%=comment.username%></span>
+            </div>
+        </a>
+        <span class="commentDate"><%=moment(comment.date_publish).format("H[h le ]D/M")%></span>
+    </div>
+
+    <div class="commentContainer">
+        <div class="commentContent">
+            <%=comment.content%>
+        </div>
+    </div>
+    <div class="commentFooter"></div>
+</div>

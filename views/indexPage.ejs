@@ -1,0 +1,15 @@
+<%- include partials/header %>
+
+<div id="mainIndex" class="main">
+    <form id="connection" class="entryForm" method="post" action="/login">
+        <input id="username" name="username" required type="text" placeholder="username">
+        <input id="password" name="password" required type="password" placeholder="password">
+        <div class="formularButtons">
+            <input id="loginButton" class="button" type="submit" value="Login">
+            <input id="signinLink" class="button" type="button" value="Sign In">
+        </div>
+    </form>
+    <a id="forgetPass" href="">Don't remember Password ?</a>
+</div>
+
+<%- include partials/footer %>

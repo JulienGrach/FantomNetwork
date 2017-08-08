@@ -1,0 +1,18 @@
+//Design of 2 Formulars for entrance: SIGNIN and LOGIN(index)
+.entryForm input{
+  width: 50%;
+  height: 10vh;
+  border-radius: 10px;
+}
+
+.formularButtons{
+  width: 50%;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.formularButtons input{
+  width: 40%;
+  margin: 0;
+}

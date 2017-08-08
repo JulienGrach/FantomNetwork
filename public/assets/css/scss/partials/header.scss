@@ -1,0 +1,75 @@
+//PARTICULARITY OF HEADER
+#header{
+  position: fixed;
+  top:0;
+  width: 100%;
+  border-bottom: 1px solid gainsboro;
+  background-color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#headerContentFirst{
+  max-width: 20%;
+}
+
+#headerContentSecond{
+  width: 50%;
+}
+
+#headerContentThird{
+  width: 20%;
+}
+
+#headerContentFourth{
+  width: 10%;
+}
+
+.logoHeader{
+  display: block;
+  width: 150px;
+  height: 80px;
+}
+
+#logo{
+  background-image: url('../images/logo.png');
+}
+
+.clientAuthor{
+  text-align: center;
+}
+
+.clientAuthorPic{
+  border-radius: 5px;
+  height: 50px;
+  width: 40px;
+  margin: auto;
+}
+
+//MENU
+
+.menu{
+  width: 100%;
+}
+
+.menuFlex{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+//FORM
+.formSearchUser{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5% 0 0;
+}
+
+.formSearchUser input{
+  height: 30px;
+}
+

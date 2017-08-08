@@ -1,0 +1,30 @@
+<%- include partials/header %>
+
+<div id="mainUser" class="main">
+
+    <div class="userPageHead">
+
+        <div class="backgroundWrapper">
+            <div class="img" style="background-image: url('<%=user.coverPic%>')"></div>
+        </div>
+        <div class="introduce">
+            <div class="introduceTitles">
+                <h3><%=user.username%></h3>
+                <span><%=user.birthday%></span>
+            </div>
+            <p><%=user.introduce%></p>
+        </div>
+    </div>
+
+    <%articles.forEach(function(article){%>
+        <div class="userArticle">
+            <%- include partials/article %>
+        </div>
+    <%})%>
+
+</div>
+
+<script src="/assets/js/articles/articlesCountHeight.js"></script>
+<script src="/assets/js/articles/articlesDeploiement.js"></script>
+
+<%- include partials/footer %>

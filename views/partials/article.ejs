@@ -1,0 +1,37 @@
+
+
+<div class="article">
+    <div class="articleHead">
+        <a href="/user/<%=article.userId%>">
+            <div class="articleAuthor">
+                <div class="articleAuthorPic">
+                    <div class="img" style="background-image: url('<%=article.profilPic%>')"></div>
+                </div>
+                <span class="articleAuthorName"><%=article.username%></span>
+            </div>
+        </a>
+        <h3><a href="/article/<%=article.id%>"><%=article.title%></a></h3>
+        <span class="articleDate"><%=moment(article.date_publish).format("H[h le ]D/M");%></span>
+    </div>
+
+    <div class="articleContainer">
+        <div class="articleContent">
+            <%=article.content%>
+        </div>
+    </div>
+
+    <div class="articleFoot">
+        <div class="articleNext">...</div>
+        <div class="articleButton"></div>
+        <div class="articleComments">
+
+            <%article.comments.forEach(function(comment){%>
+            <%- include comment%>
+            <%})%>
+
+            <%- include responseComment%>
+
+        </div>
+    </div>
+</div>
+

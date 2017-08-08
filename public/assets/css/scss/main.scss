@@ -1,0 +1,60 @@
+//-----------------------------------GLOBAL
+//STRUCTURE
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+}
+
+body{
+  min-height: 100%;
+  position: relative;
+}
+
+.main{
+  min-height:100%;
+  width:100%;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+//LIST
+ul{
+  list-style-type: none;
+}
+
+//LINK
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+//IMAGES
+.img{
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+@import 'partials/globalFormular.scss';
+
+//-----------------------------------SHARE
+@import 'partials/header.scss';
+@import 'partials/entryFormular.scss';
+@import 'partials/article.scss';
+@import 'partials/comment.scss';
+@import 'partials/responseComment.scss';
+@import 'partials/footer.scss';
+
+//-----------------------------------PARTICULARITY
+@import 'pages/indexPage';
+@import 'pages/signinPage';
+@import 'pages/articlePage';
+@import 'pages/userPage';
+@import 'pages/usersPage';
+@import 'pages/createPostPage';
+
