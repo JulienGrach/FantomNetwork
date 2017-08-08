@@ -21,7 +21,7 @@ exports.seed = function(knex, Promise) {
               userId:1
           },
           {id: 4,
-              title: 'Title4,
+              title: 'Title4',
               content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consectetur cupiditate dolores facilis fuga idincidunt iste nisi numquam obcaecati, quas quo quod, tempora temporibus veniam vero voluptate. Atque, eligendi.',
               userId:2
           },

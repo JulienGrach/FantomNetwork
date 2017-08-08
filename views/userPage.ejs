@@ -10,7 +10,9 @@
         <div class="introduce">
             <div class="introduceTitles">
                 <h3><%=user.username%></h3>
-                <span><%=user.birthday%></span>
+                <%if(user.birthday != null){%>
+                <span><%=moment(user.birthday).format('D/M/yyyy')%></span>
+                <%}%>
             </div>
             <p><%=user.introduce%></p>
         </div>

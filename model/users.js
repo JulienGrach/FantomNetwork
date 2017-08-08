@@ -13,11 +13,11 @@ function users() {
 // *** queries *** //
 
 function getAll() {
-    return users().select();
+    return users().select('id', 'username', 'profilPic', 'coverPic', 'birthday');
 }
 
 function getUser(userID) {
-    return users().where('id', parseInt(userID)).first();
+    return users().select('id', 'username', 'profilPic', 'coverPic', 'introduce', 'birthday').where('id', parseInt(userID)).first();
 }
 
 function getUsername(userID) {

@@ -7,6 +7,7 @@ exports.up = function(knex, Promise) {
         table.string('mail').unique().notNullable();
         table.string('profilPic');
         table.string('coverPic');
+        table.string('introduce');
         table.dateTime('birthday');
         table.boolean('admin').notNullable().defaultTo(false);
     });

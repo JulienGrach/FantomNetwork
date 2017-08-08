@@ -19,9 +19,7 @@ function getAll() {
 }
 
 function getAllByOwner(userID){
-    return articles().select('articles.*', 'users.username', 'users.profilPic').from('articles').leftJoin('users', function() {
-        this.on('users.id', '=', 'articles.userId').andOnIn('users.id', '=', parseInt(userID));
-    });
+    return articles().select().where('articles.userId', parseInt(userID));
 }
 
 function getArticle(articleID) {

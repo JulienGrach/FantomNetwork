@@ -12,6 +12,7 @@ exports.seed = function(knex, Promise) {
               mail: 'monMail1',
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
+              introduce : '',
               admin: true
           },
           {
@@ -21,6 +22,7 @@ exports.seed = function(knex, Promise) {
               mail: 'monMail2',
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
+              introduce : '',
               admin: true
           },
           {
@@ -30,6 +32,7 @@ exports.seed = function(knex, Promise) {
               mail: 'monMail3',
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
+              introduce : '',
               admin: true
           },
           {
@@ -39,6 +42,7 @@ exports.seed = function(knex, Promise) {
               mail: 'monMail4',
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
+              introduce : '',
               admin: true
           },
           ]);

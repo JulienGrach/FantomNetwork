@@ -4,6 +4,7 @@
 'use strict';
 
 //QUERIES & HANDLER
+const userQuery = require('./../../model/users');
 const articleQuery = require('./../../model/articles');
 const commentQuery = require('./../../model/comments');
 
@@ -29,6 +30,14 @@ function formatCommentsByArticle(comments, article){
     return article
 }
 
+function formatArticleByUser(articles, user){
+    articles.forEach((article)=>{
+        article.username = user.username;
+        article.profilPic = user.profilPic;
+    });
+    return articles
+}
+
 //MODULE
 
 function queryArticlesObjects(){
@@ -36,7 +45,9 @@ function queryArticlesObjects(){
     let comments = commentQuery.getAll();
 
     return comments.then((doneComments, err) => {
+        if(err){secure.error(err)}
         return articles.then((doneArticles, err)=>{
+            if(err){secure.error(err)}
             return searchCommentsByArticles(doneComments, doneArticles);
         });
     });
@@ -47,13 +58,36 @@ function queryArticleObject(id){
     let comments = commentQuery.getAllByArticle(id);
 
     return comments.then((doneComment, err) => {
+        if(err){secure.error(err)}
         return article.then((doneArticle, err)=>{
+            if(err){secure.error(err)}
             return formatCommentsByArticle(doneComment, doneArticle);
         });
     })
 }
 
+function queryArticleObjectByOwner(userId){
+    let article = articleQuery.getAllByOwner(userId);
+    let user = userQuery.getUser(userId);
+    let comments = commentQuery.getAll();
+
+    let articleObject = comments.then((doneComments, err) => {
+        if(err){secure.error(err)}
+        return article.then((doneArticles, err)=>{
+            if(err){secure.error(err)}
+            return searchCommentsByArticles(doneComments, doneArticles);
+        });
+    }).then((doneArticleObject)=>{
+        return user.then((doneUser)=>{
+            return formatArticleByUser(doneArticleObject, doneUser)
+        })
+    });
+
+    return Promise.all([user, articleObject])
+}
+
 module.exports = {
     queryArticlesObjects : queryArticlesObjects,
-    queryArticleObject : queryArticleObject
+    queryArticleObject : queryArticleObject,
+    queryArticleObjectByOwner : queryArticleObjectByOwner
 };
