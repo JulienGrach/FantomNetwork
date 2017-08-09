@@ -20,8 +20,8 @@ function getUser(userID) {
     return users().select('id', 'username', 'profilPic', 'coverPic', 'introduce', 'birthday').where('id', parseInt(userID)).first();
 }
 
-function getUsername(userID) {
-    return users('username', 'urlImg').where('id', parseInt(userID)).first();
+function getUserOnConnection(username) {
+    return users().select('id', 'profilPic', 'password', 'admin').where('username', username);
 }
 
 function add(user) {
@@ -40,7 +40,7 @@ function deleteItem(userID) {
 module.exports = {
     getAll: getAll,
     getUser: getUser,
-    getUsername: getUsername,
+    getUserOnConnection: getUserOnConnection,
     add: add,
     update: update,
     deleteItem: deleteItem

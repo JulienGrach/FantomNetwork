@@ -29,6 +29,7 @@ function getArticle(articleID) {
 }
 
 function add(article) {
+    console.log(article);
     return articles().insert(article, 'id');
 }
 
