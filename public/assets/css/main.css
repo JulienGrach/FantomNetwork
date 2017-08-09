@@ -137,6 +137,22 @@ textarea {
 .articleHead h3 {
   font-size: 2em; }
 
+.containerButtonsModify {
+  margin: 0 auto 50px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 20px; }
+
+.buttonModify {
+  height: 100%;
+  width: 20px; }
+
+.containerButtonsModify a {
+  display: block;
+  width: 100%;
+  height: 100%; }
+
 .articleContainer {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -147,6 +163,12 @@ textarea {
   max-height: 30vh;
   overflow: hidden;
   margin: auto; }
+
+.imgPut {
+  background-color: coral; }
+
+.imgDel {
+  background-color: indianred; }
 
 .articleFoot {
   text-align: center; }
@@ -188,20 +210,27 @@ textarea {
   width: 40px; }
 
 .commentContainer {
-  text-align: justify;
+  text-align: left;
   width: 70%;
   margin: 10px auto 0 auto; }
 
 .commentFooter {
   clear: both; }
 
+.commentHead .containerButtonsModify {
+  width: 10%;
+  float: right;
+  margin-right: 20px; }
+
 .responseCommentTextArea {
   width: 70%;
   min-height: 100px; }
 
-.responseCommentButton {
+.responseCommentSubmit {
   float: right;
-  margin-right: 20px; }
+  margin-right: 10px;
+  width: 80px;
+  height: 80px; }
 
 footer {
   position: absolute;

@@ -19,28 +19,32 @@ function signinConstructor(req, res){
 
 //----------------------------POST
 
-function loginVerificator(req, res){
+function loginVerificator(req, res) {
     let sess = req.session;
 
     let username = req.body.username;
     let password = req.body.password;
 
 
-    queryUser.getUserOnConnection(username).then((done, err)=>{
+    queryUser.getUserOnConnection(username).then((done, err) => {
         let user = done[0];
 
-        if(!user || password != user.password){
+        if (!user || password != user.password) {
             res.redirect('/');
-        }else{
+        } else {
             sess.client = {
-                userId : user.id,
-                username : username,
-                profilPic : user.profilPic,
-                admin : user.admin
+                userId: user.id,
+                username: username,
+                profilPic: user.profilPic,
+                admin: user.admin
             };
             res.redirect('/articles');
         }
     })
+}
+
+function createUserReception(req, res){
+
 }
 
 module.exports = {

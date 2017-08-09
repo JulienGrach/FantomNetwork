@@ -11,7 +11,24 @@
             </div>
         </a>
         <h3><a href="/article/<%=article.id%>"><%=article.title%></a></h3>
-        <span class="articleDate"><%=moment(article.date_publish).format("H[h le ]D/M");%></span>
+        <div class="articleHeadContainerRight">
+            <div class="containerButtonsModify">
+                <%if(article.userId == client.userId || client.admin != 0){%>
+                <div class="articlePut buttonModify">
+                    <a>
+                        <div class="img imgPut"></div>
+                    </a>
+                </div>
+                <div class="articleDel buttonModify">
+                    <a>
+                        <div class="img imgDel"></div>
+                    </a>
+                </div>
+                <%}%>
+            </div>
+            <span class="articleDate"><%=moment(article.date_publish).format("H[h]mm[ le ]D/M");%></span>
+        </div>
+
     </div>
 
     <div class="articleContainer">

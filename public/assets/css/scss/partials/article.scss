@@ -31,6 +31,25 @@
   font-size: 2em;
 }
 
+.containerButtonsModify{
+  margin: 0 auto 50px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height:20px;
+}
+
+.buttonModify{
+  height: 100%;
+  width:20px;
+}
+
+.containerButtonsModify a{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 //CONTENT
 .articleContainer{
   margin-top: 20px;
@@ -44,6 +63,15 @@
   overflow: hidden;
   margin: auto;
 }
+
+.imgPut{
+  background-color: coral;
+}
+
+.imgDel{
+  background-color: indianred;
+}
+
 
 //FOOT
 

@@ -37,11 +37,11 @@ app.set('view engine', 'ejs')
     .get('/', defaultController.indexConstructor)
     .get('/signin', defaultController.signinConstructor)
     .post('/login', defaultController.loginVerificator)
+    .post('/createUser', defaultController.createUserReception)
 
 
     .get('/users', loginValidator, userController.usersPageConstructor)
     .get('/user/:id', loginValidator, userController.userPageConstructor)
-    //.post()
     //.put()
     //.del()
 
@@ -51,6 +51,8 @@ app.set('view engine', 'ejs')
     .post('/createArticle', loginValidator, articleController.createArticleReception)
     //.put()
     //.del()
+
+    .post('/createComment', loginValidator, commentController.createCommentReception)
 
      //PORT
 
