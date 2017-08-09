@@ -13,7 +13,7 @@ function users() {
 // *** queries *** //
 
 function getAll() {
-    return users().select('id', 'username', 'profilPic', 'coverPic', 'birthday');
+    return users().select('id', 'username', 'profilPic', 'coverPic', 'birthday').orderBy('username', 'desc');
 }
 
 function getUser(userID) {

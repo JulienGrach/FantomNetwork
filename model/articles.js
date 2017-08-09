@@ -13,13 +13,13 @@ function articles() {
 // *** queries *** //
 
 function getAll() {
-    return articles().select('articles.*', 'users.username', 'users.profilPic').from('articles').leftJoin('users', function() {
+    return articles().select('articles.*', 'users.username', 'users.profilPic').from('articles').orderBy('date_publish', 'desc').leftJoin('users', function() {
         this.on('users.id', '=', 'articles.userId')
     });
 }
 
 function getAllByOwner(userID){
-    return articles().select().where('articles.userId', parseInt(userID));
+    return articles().select().where('articles.userId', parseInt(userID)).orderBy('date_publish', 'desc');
 }
 
 function getArticle(articleID) {
@@ -29,7 +29,6 @@ function getArticle(articleID) {
 }
 
 function add(article) {
-    console.log(article);
     return articles().insert(article, 'id');
 }
 
