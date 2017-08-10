@@ -20,6 +20,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.5",
     "knex": "^0.13.0",
+    "method-override": "^2.3.9",
     "mocha": "^3.4.2",
     "moment": "^2.18.1",
     "mysql": "^2.13.0",

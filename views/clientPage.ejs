@@ -1,0 +1,24 @@
+<%- include partials/header %>
+
+<div id="mainClient" class="main">
+    <form id="modifClient" class="entryForm" method="post" action="">
+        <input id="username" title="username" name="username" type="text" value="<%=user.username%>">
+        <input id="mail" title="mail" name="mail" type="email" value="<%=user.mail%>">
+        <input id="birthday" title="birthday" name="birthday" type="date" value=
+        <%if(user.birthday){%>
+            "<%=user.birthday%>">
+        <%}else{%>
+            "01/01/01">
+        <%}%>
+        <input id="password" title="password" name="password" type="password" placeholder="change your password">
+        <input id="repassword" title="repassword" name="repassword" type="password" placeholder="retype your password">
+
+        <div class="formularButtons">
+            <input id="imgProfil" title="Choose a profil picture" name="imgProfil" type="file">
+            <input id="imgCover" title="Choose a cover picture" name="imgCover" type="file">
+            <input id="applyButton" class="button" type="submit" value="Apply">
+        </div>
+    </form>
+</div>
+
+<%- include partials/footer %>

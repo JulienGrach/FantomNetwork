@@ -8,13 +8,20 @@
             <div class="img" style="background-image: url('<%=user.coverPic%>')"></div>
         </div>
         <div class="introduce">
+            <h3><%=user.username%></h3>
             <div class="introduceTitles">
-                <h3><%=user.username%></h3>
-                <%if(user.birthday != null){%>
-                <span><%=moment(user.birthday).format('D/M/yyyy')%></span>
+                <%if(client.userId == user.id){%>
+                    <div class="button buttonModifyIntroduce"><div id="textAreaButton" class="img"></div></div>
                 <%}%>
+                <%if(user.birthday != null){%><span><%=moment(user.birthday).format('D/M/yyyy')%></span><%}%>
             </div>
-            <p><%=user.introduce%></p>
+
+            <p class="paragIntroduce"><%=user.introduce%></p>
+
+            <form class="formIntroduce" action="" method="post">
+                <textarea class="introduceTextArea" title="introduce"></textarea>
+                <input id="introduceSubmit" class="button" type="submit" value="OK">
+            </form>
         </div>
     </div>
 
@@ -26,7 +33,7 @@
 
 </div>
 
-<script src="/assets/js/articles/articlesCountHeight.js"></script>
-<script src="/assets/js/articles/articlesDeploiement.js"></script>
+<script src="/assets/js/articlesCountHeight.js"></script>
+<script src="/assets/js/userModifyIntroduce.js"></script>
 
 <%- include partials/footer %>

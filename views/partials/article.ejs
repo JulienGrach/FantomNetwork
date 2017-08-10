@@ -14,12 +14,12 @@
         <div class="articleHeadContainerRight">
             <div class="containerButtonsModify">
                 <%if(article.userId == client.userId || client.admin != 0){%>
-                <div class="articlePut buttonModify">
+                <div class="articlePut buttonModify button">
                     <a>
                         <div class="img imgPut"></div>
                     </a>
                 </div>
-                <div class="articleDel buttonModify">
+                <div class="articleDel buttonModify button">
                     <a>
                         <div class="img imgDel"></div>
                     </a>
@@ -39,7 +39,7 @@
 
     <div class="articleFoot">
         <div class="articleNext">...</div>
-        <div class="articleButton"></div>
+        <div class="articleButton button"></div>
         <div class="articleComments">
 
             <%article.comments.forEach(function(comment){%>

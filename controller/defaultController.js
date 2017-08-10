@@ -43,12 +43,13 @@ function loginVerificator(req, res) {
     })
 }
 
-function createUserReception(req, res){
-
+function errorConstructor(req, res){
+    res.render('error', {client:false, error:'error'})
 }
 
 module.exports = {
     indexConstructor : indexConstructor,
     signinConstructor : signinConstructor,
-    loginVerificator : loginVerificator
+    loginVerificator : loginVerificator,
+    errorConstructor : errorConstructor
 };

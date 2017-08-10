@@ -40,19 +40,22 @@ a{
   background-size: cover;
 }
 
-@import 'partials/globalFormular.scss';
+@import 'partials/globalFormular';
+@import 'partials/button';
 
 //-----------------------------------SHARE
-@import 'partials/header.scss';
-@import 'partials/entryFormular.scss';
-@import 'partials/article.scss';
-@import 'partials/comment.scss';
-@import 'partials/responseComment.scss';
-@import 'partials/footer.scss';
+@import 'partials/header';
+@import 'partials/entryFormular';
+@import 'partials/article';
+@import 'partials/comment';
+@import 'partials/responseComment';
+@import 'partials/footer';
 
 //-----------------------------------PARTICULARITY
+@import 'pages/errorPage';
 @import 'pages/indexPage';
 @import 'pages/signinPage';
+@import 'pages/clientPage';
 @import 'pages/articlePage';
 @import 'pages/userPage';
 @import 'pages/usersPage';

@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
         table.string('introduce');
         table.dateTime('birthday');
         table.boolean('admin').notNullable().defaultTo(false);
+        table.boolean('activ').notNullable().defaultTo(false);
     });
 };
 

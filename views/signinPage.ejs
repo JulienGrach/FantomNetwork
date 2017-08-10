@@ -1,13 +1,5 @@
 <%- include partials/header %>
 
-<header id="header">
-    <!-- Logo -->
-    <a href="index.html" class="logoHeader">
-        <div id="logo" class="img"></div>
-    </a>
-</header>
-
-
 <div id="mainSignin" class="main">
     <form id="inscription" class="entryForm" method="post" action="/signin">
         <input id="username" title="username" name="username" required type="text" placeholder="username">
@@ -15,7 +7,7 @@
         <input id="repassword" title="repassword" name="repassword" required type="repassword" placeholder="retype your password">
         <input id="mail" title="mail" name="mail" required type="email" placeholder="type your mail">
         <div class="formularButtons">
-            <input id="imgProfil" name="imgProfil" required type="file">
+            <input id="imgProfil" title="Choose a profil picture" name="imgProfil" required type="file">
             <input id="signinButton" class="button" type="submit" value="Sign In">
         </div>
     </form>

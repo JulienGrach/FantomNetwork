@@ -1,0 +1,15 @@
+<%- include partials/header %>
+
+<div id="mainError" class="main">
+    <p>OUPS, that's an error !</p>
+    <p>Submit a mail to your administrator with the formular below:</p>
+    <form id="submitError" class="form" method="post" action="/error">
+        <textarea name="precisionUser" placeholder="Facultative: Precise your last action to the administrator to help him with your issue"></textarea>
+        <input type="hidden" name="errorAuto" value="<%=error%>">
+        <div class="formularButtons">
+            <input id="envoyer" class="button" type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+<%- include partials/footer %>

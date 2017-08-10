@@ -13,11 +13,15 @@ function users() {
 // *** queries *** //
 
 function getAll() {
-    return users().select('id', 'username', 'profilPic', 'coverPic', 'birthday').orderBy('username', 'desc');
+    return users().select('id', 'username', 'profilPic', 'coverPic', 'birthday', 'admin', 'activ').orderBy('username', 'desc');
 }
 
 function getUser(userID) {
     return users().select('id', 'username', 'profilPic', 'coverPic', 'introduce', 'birthday').where('id', parseInt(userID)).first();
+}
+
+function getClient(userID) {
+    return users().select().where('id', parseInt(userID)).first();
 }
 
 function getUserOnConnection(username) {
@@ -40,6 +44,7 @@ function deleteItem(userID) {
 module.exports = {
     getAll: getAll,
     getUser: getUser,
+    getClient: getClient,
     getUserOnConnection: getUserOnConnection,
     add: add,
     update: update,

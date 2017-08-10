@@ -1,0 +1,26 @@
+.button{
+  margin: 10px 0 10px 0;
+  border: 0;
+  -moz-box-shadow: 2px 2px 2px 0px #656565;
+  -webkit-box-shadow: 2px 2px 2px 0px #656565;
+  -o-box-shadow: 2px 2px 2px 0px #656565;
+  box-shadow: 2px 2px 2px 0px #656565;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=2);
+}
+
+.button:hover{
+  -moz-box-shadow: 3px 3px 2px 0px #656565;
+  -webkit-box-shadow: 3px 3px 2px 0px #656565;
+  -o-box-shadow: 3px 3px 2px 0px #656565;
+  box-shadow: 3px 3px 2px 0px #656565;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=2);
+}
+
+.button:active{
+  -moz-box-shadow: 0 0;
+  -webkit-box-shadow: 0 0;
+  -o-box-shadow: 0 0;
+  box-shadow: 0 0;
+  filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=134, Strength=20);
+}
+

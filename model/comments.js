@@ -13,13 +13,13 @@ function comments() {
 // *** queries *** //
 
 function getAll(){
-    return comments().select('comments.*', 'users.username', 'users.profilPic').from('comments').orderBy('date_publish', 'desc').leftJoin('users', function() {
+    return comments().select('comments.*', 'users.username', 'users.profilPic').from('comments').orderBy('date_publish', 'asc').leftJoin('users', function() {
         this.on('users.id', '=', 'comments.userId')
     });
 }
 
 function getAllByArticle(articleId) {
-    return comments().select('comments.*', 'users.username', 'users.profilPic').from('comments').orderBy('date_publish', 'desc').leftJoin('users', function() {
+    return comments().select('comments.*', 'users.username', 'users.profilPic').from('comments').orderBy('date_publish', 'asc').leftJoin('users', function() {
         this.on('users.id', '=', 'comments.userId');
     }).where('comments.articleId', '=', parseInt(articleId));
 }

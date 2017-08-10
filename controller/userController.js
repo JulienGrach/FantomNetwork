@@ -28,10 +28,21 @@ function userPageConstructor(req, res){
         if(err){secure.error(err)}
         res.render('userPage', {client : req.session.client, user : done[0], articles : done[1], moment : moment})
     })
+}
+
+function clientPageConstructor(req, res){
+    let sess = req.session.client;
+
+    userQuery.getClient(sess.userId).then((done, err)=>{
+        if(err) secure.error(err);
+        console.log(done);
+        res.render('clientPage', {client : sess, user : done});
+    });
 
 }
 
 module.exports = {
     usersPageConstructor: usersPageConstructor,
-    userPageConstructor: userPageConstructor
+    userPageConstructor: userPageConstructor,
+    clientPageConstructor : clientPageConstructor
 };
