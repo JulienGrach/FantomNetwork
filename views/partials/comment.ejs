@@ -33,7 +33,7 @@
         <div id="commentContent<%=comment.id%>" class="commentContent">
             <%=comment.content%>
         </div>
-        <form id="commentFormModify<%=comment.id%>" class="formModifyComment" action="/posts">
+        <form id="commentFormModify<%=comment.id%>" class="formModifyComment" method="post" action="/posts">
             <input type="hidden" name="_method" value="PUT">
             <input type="hidden" name="_table" value="comment">
             <input type="hidden" name="_id" value="<%=comment.id%>">

@@ -9,6 +9,8 @@ const queryComment = require('./../model/comments');
 
 const secure = require('./handler/secure');
 
+//HANDLER
+const formatDataIn = require('./handler/formatDataIn');
 
 //MODULE
 //----------------------------GET
@@ -82,6 +84,7 @@ function generalPostsDeletor(req, res){
 function generalPostsModificator(req, res){
     let queryType;
     let reqRedirection = req.headers.referer;
+    let updates = formatDataIn.formatUpdatePost(req.body);
 
     switch(req.body._table){
         case 'article':
@@ -93,7 +96,7 @@ function generalPostsModificator(req, res){
             break;
     }
 
-    queryType.updates(req.body._id, contentModify).then((done, err)=>{
+    queryType.update(req.body._id, updates).then((done, err)=>{
         if(err) secure.error(err);
         res.redirect(reqRedirection);
     })

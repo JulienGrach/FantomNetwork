@@ -14,6 +14,7 @@ function createCommentReception(req, res){
     let content = req.body.content;
     let userId = req.session.client.userId;
     let articleId = req.body.articleId;
+    let reqRedirection = req.headers.referer;
 
     let comment = {
         content : content,
@@ -23,7 +24,7 @@ function createCommentReception(req, res){
     };
 
     commentQuery.add(comment).then((done, err)=>{
-        res.redirect('/article/'+articleId);
+        res.redirect(reqRedirection);
     });
 }
 
