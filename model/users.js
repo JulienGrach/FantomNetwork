@@ -25,7 +25,7 @@ function getClient(userID) {
 }
 
 function getUserOnConnection(username) {
-    return users().select('id', 'profilPic', 'password', 'admin').where('username', username);
+    return users().select('id', 'profilPic', 'password', 'admin', 'activ').where('username', username);
 }
 
 function add(user) {

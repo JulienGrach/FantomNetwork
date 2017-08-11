@@ -18,7 +18,7 @@ const commentController = require('./controller/commentController');
 const defaultController = require('./controller/defaultController');
 
 //MIDDLEWARES MODULES
-const loginValidator = require('./controller/middleware/clientMiddleware');
+const clientMiddleware = require('./controller/middleware/clientMiddleware');
 
 //CONFIGURATION SERVER
 app.set('view engine', 'ejs');
@@ -51,21 +51,25 @@ app.get('/', defaultController.indexConstructor)
     .post('/login', defaultController.loginVerificator)
     // .post('/createUser', defaultController.createUserReception)
 
+    .delete('/posts', clientMiddleware.ownerValidator, defaultController.generalPostsDeletor)
+    .put('/posts', clientMiddleware.ownerValidator, defaultController.generalPostsModificator)
 
-    .get('/users', loginValidator, userController.usersPageConstructor)
-    .get('/user/:id', loginValidator, userController.userPageConstructor)
-    .get('/client', loginValidator, userController.clientPageConstructor)
+
+
+    .get('/users', clientMiddleware.loginValidator, userController.usersPageConstructor)
+    .get('/user/:id', clientMiddleware.loginValidator, userController.userPageConstructor)
+    .get('/client', clientMiddleware.loginValidator, userController.clientPageConstructor)
     //.put()
-    //.del()
 
-    .get('/articles', loginValidator, articleController.articlesPageConstructor)
-    .get('/article/:id', loginValidator, articleController.articlePageConstructor)
-    .get('/createArticle', loginValidator, articleController.createArticlePageConstructor)
-    .post('/createArticle', loginValidator, articleController.createArticleReception)
+
+    .get('/articles', clientMiddleware.loginValidator, articleController.articlesPageConstructor)
+    .get('/article/:id', clientMiddleware.loginValidator, articleController.articlePageConstructor)
+    .get('/createArticle', clientMiddleware.loginValidator, articleController.createArticlePageConstructor)
+    .post('/createArticle', clientMiddleware.loginValidator, articleController.createArticleReception)
     //.put()
-    //.del()
 
-    .post('/createComment', loginValidator, commentController.createCommentReception);
+
+    .post('/createComment', clientMiddleware.loginValidator, commentController.createCommentReception);
 
 //PORT SERVER
 app.listen(port);

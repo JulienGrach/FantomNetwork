@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "knex": "knex migrate:rollback --env test && knex migrate:latest --env test && knex seed:run --env test",
+    "startup": "npm run knex && node app.js",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",

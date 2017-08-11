@@ -18,14 +18,14 @@ const objectCreate = require('./handler/objectCreate');
 //----------------------------GET
 function usersPageConstructor(req, res) {
     userQuery.getAll().then((done, err)=>{
-        if(err){secure.error(err)}
+        if(err) secure.error(err);
         res.render('usersPage', {client : req.session.client, users : done})
     })
 }
 
 function userPageConstructor(req, res){
     objectCreate.queryArticleObjectByOwner(req.params.id).then((done, err)=>{
-        if(err){secure.error(err)}
+        if(err) secure.error(err);
         res.render('userPage', {client : req.session.client, user : done[0], articles : done[1], moment : moment})
     })
 }

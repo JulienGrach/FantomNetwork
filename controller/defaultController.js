@@ -4,6 +4,10 @@
 
 //QUERY
 const queryUser = require('./../model/users');
+const queryArticle = require('./../model/articles');
+const queryComment = require('./../model/comments');
+
+const secure = require('./handler/secure');
 
 
 //MODULE
@@ -17,6 +21,10 @@ function signinConstructor(req, res){
     res.render('signinPage', { client:req.session.client })
 }
 
+function errorConstructor(req, res){
+    res.render('error', {client : req.session.client, error : 'error'})
+}
+
 //----------------------------POST
 
 function loginVerificator(req, res) {
@@ -27,9 +35,10 @@ function loginVerificator(req, res) {
 
 
     queryUser.getUserOnConnection(username).then((done, err) => {
+        if(err) secure.error(err);
         let user = done[0];
 
-        if (!user || password != user.password) {
+        if (!user || password != user.password || user.activ == 0) {
             res.redirect('/');
         } else {
             sess.client = {
@@ -43,13 +52,58 @@ function loginVerificator(req, res) {
     })
 }
 
-function errorConstructor(req, res){
-    res.render('error', {client:false, error:'error'})
+//----------------------------DEL
+
+function generalPostsDeletor(req, res){
+    let queryType;
+    let reqRedirection = req.headers.referer;
+
+    switch(req.body._table){
+        case 'article':
+            queryType = queryArticle;
+            if(reqRedirection.match(/\/article\//)) reqRedirection = '/articles';
+            break;
+
+        case 'comment':
+            queryType = queryComment;
+            reqRedirection = '/article/'+req.body._articleId;
+            break;
+    }
+
+    queryType.deleteItem(req.body._id).then((done, err)=>{
+        if(err) secure.error(err);
+        res.redirect(reqRedirection);
+    })
+}
+
+
+//----------------------------PUT
+
+function generalPostsModificator(req, res){
+    let queryType;
+    let reqRedirection = req.headers.referer;
+
+    switch(req.body._table){
+        case 'article':
+            queryType = queryArticle;
+            break;
+
+        case 'comment':
+            queryType = queryComment;
+            break;
+    }
+
+    queryType.updates(req.body._id, contentModify).then((done, err)=>{
+        if(err) secure.error(err);
+        res.redirect(reqRedirection);
+    })
 }
 
 module.exports = {
     indexConstructor : indexConstructor,
     signinConstructor : signinConstructor,
+    errorConstructor : errorConstructor,
     loginVerificator : loginVerificator,
-    errorConstructor : errorConstructor
+    generalPostsDeletor : generalPostsDeletor,
+    generalPostsModificator : generalPostsModificator
 };

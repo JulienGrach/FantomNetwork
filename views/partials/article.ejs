@@ -14,16 +14,19 @@
         <div class="articleHeadContainerRight">
             <div class="containerButtonsModify">
                 <%if(article.userId == client.userId || client.admin != 0){%>
-                <div class="articlePut buttonModify button">
-                    <a>
-                        <div class="img imgPut"></div>
-                    </a>
-                </div>
-                <div class="articleDel buttonModify button">
-                    <a>
-                        <div class="img imgDel"></div>
-                    </a>
-                </div>
+
+                    <form class="articlePut buttonModify button" method="post" action="/put">
+                        <input class="img imgPut" type="submit" value="">
+                    </form>
+
+                    <form class="articleDel buttonModify button" method="post" action="/posts">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_table" value="article">
+                        <input type="hidden" name="_id" value="<%=article.id%>">
+                        <input type="hidden" name="_owner" value="<%=article.userId%>">
+                        <input class="img imgDel" type="submit" value="">
+                    </form>
+
                 <%}%>
             </div>
             <span class="articleDate"><%=moment(article.date_publish).format("H[h]mm[ le ]D/M");%></span>

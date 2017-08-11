@@ -5,7 +5,7 @@
 //To Resolve Error
 function error(err, response){
     console.warn(err);
-    response.render('index');
+    response.render('error', {error : err});
 }
 
 module.exports = {

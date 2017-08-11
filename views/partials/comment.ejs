@@ -10,25 +10,37 @@
         </a>
         <div class="containerButtonsModify">
             <%if(comment.userId == client.userId || client.admin != 0){%>
-            <div class="commentPut buttonModify button">
-                <a>
+
+                <div id="commentButtonModify<%=comment.id%>" class="commentPut buttonModify button" onclick="toggleFormModify(<%=comment.id%>, 'comment')">
                     <div class="img imgPut"></div>
-                </a>
-            </div>
-            <div class="commentDel buttonModify button">
-                <a>
-                    <div class="img imgDel"></div>
-                </a>
-            </div>
+                </div>
+
+                <form class="commentDel buttonModify button" method="post" action="/posts">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_table" value="comment">
+                    <input type="hidden" name="_id" value="<%=comment.id%>">
+                    <input type="hidden" name="_articleId" value="<%=article.id%>">
+                    <input type="hidden" name="_owner" value="<%=comment.userId%>">
+                    <input class="img imgDel" type="submit" value="">
+                </form>
+
             <%}%>
         </div>
         <span class="commentDate"><%=moment(comment.date_publish).format("H[h]mm[ le ]D/M")%></span>
     </div>
 
     <div class="commentContainer">
-        <div class="commentContent">
+        <div id="commentContent<%=comment.id%>" class="commentContent">
             <%=comment.content%>
         </div>
+        <form id="commentFormModify<%=comment.id%>" class="formModifyComment" action="/posts">
+            <input type="hidden" name="_method" value="PUT">
+            <input type="hidden" name="_table" value="comment">
+            <input type="hidden" name="_id" value="<%=comment.id%>">
+            <input type="hidden" name="_owner" value="<%=comment.userId%>">
+            <textarea id="textareaModify<%=comment.id%>" name="contentModify"><%=comment.content%></textarea>
+            <input type="submit" value="OK">
+        </form>
     </div>
     <div class="commentFooter"></div>
 </div>

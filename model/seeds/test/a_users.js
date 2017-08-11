@@ -13,7 +13,8 @@ exports.seed = function(knex, Promise) {
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
               introduce : '',
-              admin: true
+              admin: true,
+              activ: true
           },
           {
               id: 2,
@@ -23,7 +24,6 @@ exports.seed = function(knex, Promise) {
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
               introduce : '',
-              admin: true
           },
           {
               id: 3,
@@ -33,7 +33,6 @@ exports.seed = function(knex, Promise) {
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
               introduce : '',
-              admin: true
           },
           {
               id: 4,
@@ -43,7 +42,6 @@ exports.seed = function(knex, Promise) {
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
               introduce : '',
-              admin: true
           },
           ]);
     });

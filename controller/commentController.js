@@ -12,7 +12,6 @@ const secure = require('./handler/secure');
 
 function createCommentReception(req, res){
     let content = req.body.content;
-    console.log(req.body);
     let userId = req.session.client.userId;
     let articleId = req.body.articleId;
 

@@ -45,9 +45,9 @@ function queryArticlesObjects(){
     let comments = commentQuery.getAll();
 
     return comments.then((doneComments, err) => {
-        if(err){secure.error(err)}
+        if(err)secure.error(err);
         return articles.then((doneArticles, err)=>{
-            if(err){secure.error(err)}
+            if(err)secure.error(err);
             return searchCommentsByArticles(doneComments, doneArticles);
         });
     });
@@ -58,9 +58,9 @@ function queryArticleObject(id){
     let comments = commentQuery.getAllByArticle(id);
 
     return comments.then((doneComment, err) => {
-        if(err){secure.error(err)}
+        if(err)secure.error(err);
         return article.then((doneArticle, err)=>{
-            if(err){secure.error(err)}
+            if(err)secure.error(err);
             return formatCommentsByArticle(doneComment, doneArticle);
         });
     })
@@ -72,9 +72,9 @@ function queryArticleObjectByOwner(userId){
     let comments = commentQuery.getAll();
 
     let articleObject = comments.then((doneComments, err) => {
-        if(err){secure.error(err)}
+        if(err)secure.error(err);
         return article.then((doneArticles, err)=>{
-            if(err){secure.error(err)}
+            if(err)secure.error(err);
             return searchCommentsByArticles(doneComments, doneArticles);
         });
     }).then((doneArticleObject)=>{
