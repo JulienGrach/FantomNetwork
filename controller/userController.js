@@ -35,14 +35,17 @@ function clientPageConstructor(req, res){
 
     userQuery.getClient(sess.userId).then((done, err)=>{
         if(err) secure.error(err);
-        console.log(done);
         res.render('clientPage', {client : sess, user : done});
     });
+}
 
+function clientModificator(req, res){
+    let body = req.body;
 }
 
 module.exports = {
     usersPageConstructor: usersPageConstructor,
     userPageConstructor: userPageConstructor,
-    clientPageConstructor : clientPageConstructor
+    clientPageConstructor : clientPageConstructor,
+    clientModificator :clientModificator
 };

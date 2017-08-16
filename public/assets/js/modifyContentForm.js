@@ -9,6 +9,10 @@ function toggleFormModify(id, type){
 
     content.toggle();
     form.toggle();
+
+    if(type == 'article'){
+        $('.articleButton').toggle();
+    }
 }
 
 

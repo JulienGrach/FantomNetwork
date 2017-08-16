@@ -1,6 +1,7 @@
 "use strict";
 
-const port = 8080;
+//CONFIG
+const env = require('./env.json');
 
 //NEEDS
 const express = require('express');
@@ -59,18 +60,15 @@ app.get('/', defaultController.indexConstructor)
     .get('/users', clientMiddleware.loginValidator, userController.usersPageConstructor)
     .get('/user/:id', clientMiddleware.loginValidator, userController.userPageConstructor)
     .get('/client', clientMiddleware.loginValidator, userController.clientPageConstructor)
-    //.put()
+    //.put('/client', clientMiddleware.loginValidator, userController.clientModificator)
 
 
     .get('/articles', clientMiddleware.loginValidator, articleController.articlesPageConstructor)
     .get('/article/:id', clientMiddleware.loginValidator, articleController.articlePageConstructor)
     .get('/createArticle', clientMiddleware.loginValidator, articleController.createArticlePageConstructor)
     .post('/createArticle', clientMiddleware.loginValidator, articleController.createArticleReception)
-    //.put()
-
-
     .post('/createComment', clientMiddleware.loginValidator, commentController.createCommentReception);
 
 //PORT SERVER
-app.listen(port);
+app.listen(env.PORT);
 

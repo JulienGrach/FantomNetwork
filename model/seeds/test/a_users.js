@@ -24,6 +24,8 @@ exports.seed = function(knex, Promise) {
               profilPic: '/storage/images/test.jpg',
               coverPic: '/storage/images/test1.jpg',
               introduce : '',
+              admin: false,
+              activ: true
           },
           {
               id: 3,

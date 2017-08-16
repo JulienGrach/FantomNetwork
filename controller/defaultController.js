@@ -54,6 +54,10 @@ function loginVerificator(req, res) {
     })
 }
 
+function createUserReception(){
+
+}
+
 //----------------------------DEL
 
 function generalPostsDeletor(req, res){
@@ -68,7 +72,6 @@ function generalPostsDeletor(req, res){
 
         case 'comment':
             queryType = queryComment;
-            reqRedirection = '/article/'+req.body._articleId;
             break;
     }
 
@@ -94,6 +97,8 @@ function generalPostsModificator(req, res){
         case 'comment':
             queryType = queryComment;
             break;
+        case 'user':
+            queryType = queryUser;
     }
 
     queryType.update(req.body._id, updates).then((done, err)=>{

@@ -1,6 +1,7 @@
 "use strict";
 
-const environment = process.env.NODE_ENV || 'test';
+const env = require("../env.json");
+const environment = env.ENV;
 const config = require('../knexfile.js')[environment];
 
 module.exports = require('knex')(config);

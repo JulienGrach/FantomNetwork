@@ -1,14 +1,17 @@
 // Update with your config setting.
 
+//CONFIG
+const env = require('./env.json');
+
 module.exports = {
 
     test: {
         client: 'mysql',
         connection: {
             host: 'localhost',
-            user:     'testData',
-            password: 'testData123',
-            database: 'private_network_database_test'
+            user:     env.DATABASE.user,
+            password: env.DATABASE.pass,
+            database: env.DATABASE.testBase
         },
         migrations: {
             directory: __dirname + '/model/migrations'
@@ -22,9 +25,9 @@ module.exports = {
         client: 'mysql',
         connection: {
             host: 'localhost',
-            user:     'privateNetwork',
-            password: 'privateNetwork123',
-            database: 'private_network_database'
+            user:     env.DATABASE.user,
+            password: env.DATABASE.pass,
+            database: env.DATABASE.base
         },
         migrations: {
             directory: __dirname + '/model/migrations'

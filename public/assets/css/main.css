@@ -176,6 +176,14 @@ textarea {
 .buttonModify input {
   border: 0; }
 
+.formModifyArticle {
+  display: none; }
+
+.articleContainer textarea {
+  display: block;
+  width: 70%;
+  height: 30vh; }
+
 .articleContainer {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -298,7 +306,19 @@ footer {
   background-color: palegreen; }
 
 #signinLink {
-  background-color: indianred; }
+  background-color: indianred;
+  width: 40%;
+  height: 10vh;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
+.integratedFormularLink {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 #forgetPass {
   display: block;

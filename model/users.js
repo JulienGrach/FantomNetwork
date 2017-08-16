@@ -4,7 +4,7 @@
 
 "use strict";
 
-const knex = require('./../controller/knex');
+const knex = require('./knex');
 
 function users() {
     return knex('users');

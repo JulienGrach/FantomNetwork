@@ -1,0 +1,16 @@
+{
+  "ENV": "test",
+  "PORT": "8080",
+  "NODEMAILER": {
+    "service": null,
+    "user": null,
+    "pass": null,
+    "admin": null
+  },
+  "DATABASE" : {
+    "base": null,
+    "testBase": null,
+    "user": null,
+    "pass": null
+  }
+}

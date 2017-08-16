@@ -10,13 +10,17 @@ function formatUpdatePost(body){
         result.introduce = body.introduceModify;
     }else{
         if("titleModify" in body){
-            result.title = body._title;
+            result.title = body.titleModify;
         }
         if("contentModify" in body){
             result.content = body.contentModify;
         }
     }
     return result
+}
+
+function formatUpdateClient(body, client){
+    let result = {};
 }
 
 module.exports = {

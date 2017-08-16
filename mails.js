@@ -3,12 +3,14 @@
  */
 
 //NEED && CONFIG
+const env = require('./env.json');
+
 const mailer = require('mails');
 const transporter = mailer.createTransport({
-    service: 'Gmail',
+    service: env.NODEMAILER.service,
     auth: {
-        user: 'fantomnetwork@gmail.com',
-        pass: 'testtest'
+        user: env.NODEMAILER.user,
+        pass: env.NODEMAILER.pass
     }
 });
 
@@ -21,7 +23,7 @@ const secure = require('controller/handler/secure');
 function sendError(username, error){
     let mailObject = {
         from: 'Fantom Network',
-        to: 'j.grach@hotmail.fr',
+        to: env.NODEMAILER.admin,
         subject: 'ERROR: '+username,
         text: error,
         html: error
@@ -39,7 +41,7 @@ function sendError(username, error){
 function newInscription(user){
     let mailObject = {
         from: 'Fantom Network',
-        to: 'j.grach@hotmail.fr',
+        to: env.NODEMAILER.admin,
         subject: 'Inscription: '+user.username,
         text: 'Inscription : '+user.username + ': '+user.mail,
         html: 'Inscription : 'user.username + ': '+user.mail

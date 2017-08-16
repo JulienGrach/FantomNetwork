@@ -18,8 +18,12 @@
 
             <p class="paragIntroduce"><%=user.introduce%></p>
 
-            <form class="formIntroduce" action="" method="post">
-                <textarea class="introduceTextArea" title="introduce"></textarea>
+            <form class="formIntroduce" action="/posts" method="post">
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="_table" value="user">
+                <input type="hidden" name="_id" value="<%=user.id%>">
+                <input type="hidden" name="_owner" value="<%=user.id%>">
+                <textarea class="introduceTextArea" title="introduce" name="introduceModify"><%=user.introduce%></textarea>
                 <input id="introduceSubmit" class="button" type="submit" value="OK">
             </form>
         </div>
