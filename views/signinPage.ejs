@@ -1,7 +1,7 @@
 <%- include partials/header %>
 
 <div id="mainSignin" class="main">
-    <form id="inscription" class="entryForm" method="post" action="/signin">
+    <form id="inscription" class="entryForm" enctype="multipart/form-data" method="POST" action="/signin">
         <input id="username" title="username" name="username" required type="text" placeholder="username">
         <input id="password" title="password" name="password" required type="password" placeholder="type a password">
         <input id="repassword" title="repassword" name="repassword" required type="password" placeholder="retype your password">

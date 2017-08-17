@@ -5,7 +5,8 @@
 //NEED && CONFIG
 const env = require('./env.json');
 
-const mailer = require('mails');
+const mailer = require('nodemailer');
+
 const transporter = mailer.createTransport({
     service: env.NODEMAILER.service,
     auth: {
@@ -16,7 +17,7 @@ const transporter = mailer.createTransport({
 
 
 //HANDLER
-const secure = require('controller/handler/secure');
+const secure = require('./controller/handler/secure');
 
 
 //MODULE
@@ -44,11 +45,11 @@ function newInscription(user){
         to: env.NODEMAILER.admin,
         subject: 'Inscription: '+user.username,
         text: 'Inscription : '+user.username + ': '+user.mail,
-        html: 'Inscription : 'user.username + ': '+user.mail
-    }
+        html: 'Inscription : '+user.username + ': '+user.mail
+    };
 
     transporter.sendMail(mailObject, function(err, info){
-        if(err) secure.error(err);
+        if(err) console.log(err);
         console.log('Message sent: ' + info.response);
     });
 

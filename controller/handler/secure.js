@@ -3,9 +3,11 @@
  */
 
 //To Resolve Error
-function error(err, response){
+function error(req, res, err){
     console.warn(err);
-    response.render('error', {error : err});
+    req.body.error = err;
+
+    res.redirect('error');
 }
 
 module.exports = {
