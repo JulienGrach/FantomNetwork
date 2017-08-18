@@ -4,7 +4,7 @@
 
 "use strict";
 
-//MAIL
+//DEPENDENCIES
 const mail = require('./../mails');
 
 //HANDLER

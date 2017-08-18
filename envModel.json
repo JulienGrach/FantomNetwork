@@ -2,10 +2,10 @@
   "ENV": "test",
   "PORT": "8080",
   "NODEMAILER": {
-    "service": null,
-    "user": null,
-    "pass": null,
-    "admin": null
+    "service": "Gmail",
+    "user": "toto",
+    "pass": "monmotdepasse",
+    "admin": "monadresse@mail.com"
   },
   "DATABASE" : {
     "base": null,

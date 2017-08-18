@@ -1,13 +1,13 @@
 <%- include partials/header %>
 
 <div id="mainClient" class="main">
-    <form id="modifClient" class="entryForm" method="post" action="/client">
+    <form id="modifClient" class="entryForm" method="post" enctype="multipart/form-data" action="/client">
         <input type="hidden" name="_method" value="PUT">
         <input id="username" title="username" name="username" type="text" value="<%=user.username%>">
         <input id="mail" title="mail" name="mail" type="email" value="<%=user.mail%>">
         <input id="birthday" title="birthday" name="birthday" type="date" value=
         <%if(user.birthday){%>
-            "<%=user.birthday%>">
+            "<%=moment(user.birthday).format('DD/MM/YYYY')%>">
         <%}else{%>
             "01/01/01">
         <%}%>

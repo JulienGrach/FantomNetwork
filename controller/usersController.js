@@ -9,6 +9,7 @@ const moment = require('moment');
 
 //HANDLER
 const formatToObject = require('./handler/formatToObject');
+const formatToModel = require('./handler/formatToModel');
 
 //QUERIES
 const userQuery = require('./../model/users');
@@ -34,13 +35,17 @@ function clientConstructor(req, res){
 
     userQuery.getClient(sess.userId).then((done, err)=>{
         if(err) secure.error(err);
-        res.render('clientPage', {client : sess, user : done});
+        res.render('clientPage', {client : sess, user : done, moment: moment});
     });
 }
 
 //----------------------------POST
 function userModelModificator(req, res){
-    //@TODO write it
+    formatToModel.formatUpdateClient(req.body).then((done, err)=>{
+        userQuery.update(req.session.client.userId, done).then((done, err)=>{
+            res.redirect('/user/'+req.session.client.userId);
+        });
+    })
 }
 
 module.exports = {

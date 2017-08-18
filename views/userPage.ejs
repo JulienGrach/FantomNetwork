@@ -13,7 +13,7 @@
                 <%if(client.userId == user.id){%>
                     <div class="button buttonModifyIntroduce"><div id="textAreaButton" class="img"></div></div>
                 <%}%>
-                <%if(user.birthday != null){%><span><%=moment(user.birthday).format('D/M/yyyy')%></span><%}%>
+                <%if(user.birthday != null){%><span><%=moment(user.birthday).format('DD/MM/YYYY')%></span><%}%>
             </div>
 
             <p class="paragIntroduce"><%=user.introduce%></p>
