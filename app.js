@@ -39,7 +39,7 @@ app.use(express.static('public'))
         if (req.method == 'POST') {
             let form = new formidable.IncomingForm();
 
-            form.parse(req, function (err, fields, files) {
+            form.parse(req, (err, fields, files)=>{
                 if (err) secure.error(err, res);
                 req.body = fields;
                 req.body.FILES = files;
@@ -51,7 +51,7 @@ app.use(express.static('public'))
     })
 
     //Gestion Method
-    .use(methodOverride(function (req, res) {
+    .use(methodOverride((req, res)=>{
             if (req.body && typeof req.body === 'object' && '_method' in req.body) {
                 let method = req.body._method;
                 delete req.body._method;

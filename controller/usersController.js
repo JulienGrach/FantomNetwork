@@ -39,6 +39,11 @@ function clientConstructor(req, res){
     });
 }
 
+function clientDestructor(req, res) {
+    req.session.destroy();
+    res.redirect('/');
+}
+
 //----------------------------POST
 function userModelModificator(req, res){
     formatToModel.formatUpdateClient(req.body).then((done, err)=>{
@@ -52,5 +57,6 @@ module.exports = {
     usersConstructor: usersConstructor,
     userConstructor: userConstructor,
     clientConstructor : clientConstructor,
-    userModelModificator : userModelModificator
+    userModelModificator : userModelModificator,
+    clientDestructor : clientDestructor
 };

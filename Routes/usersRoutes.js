@@ -20,6 +20,8 @@ router.get('/users', clientMiddleware.loginValidator, usersController.usersConst
     .get('/user/:id', clientMiddleware.loginValidator, usersController.userConstructor)
     .get('/client', clientMiddleware.loginValidator, usersController.clientConstructor)
 
+    .get('/disconnect', clientMiddleware.loginValidator, usersController.clientDestructor)
     .put('/client', clientMiddleware.loginValidator, usersController.userModelModificator);
+
 
 module.exports = router;

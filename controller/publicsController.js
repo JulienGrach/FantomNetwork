@@ -25,7 +25,7 @@ function signinConstructor(req, res){
 }
 
 function errorConstructor(req, res){
-    console.log(req.body); //@TODO Test this
+    //@TODO Test this
     res.render('error', {client : req.session.client, error : req.body.error})
 }
 

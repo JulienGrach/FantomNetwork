@@ -7,16 +7,12 @@ const fs = require('fs');
 
 //FUNCTION PROMISEMAP: https://stackoverflow.com/questions/29292921/how-to-use-promise-all-with-an-object-as-input
 async function promiseMapAll(promiseMap) {
-    try {
-        const promises = await Promise.all(Object.values(promiseMap));
-        let objMapped = {};
-        Object.keys(promiseMap).forEach((key, i) => {
-            objMapped[key] = promises[i];
-        });
-        return objMapped;
-    } catch(err) {
-        return { err };
-    }
+    const promises = await Promise.all(Object.values(promiseMap));
+    let objMapped = {};
+    Object.keys(promiseMap).forEach((key, i) => {
+        objMapped[key] = promises[i];
+    });
+    return objMapped;
 }
 
 
